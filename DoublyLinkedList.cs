@@ -50,7 +50,51 @@
             return temp != null;
         }
 
-        public bool Remove(int value) { return false; }
+        public bool Remove(int value)
+        {
+            if (head == null) return false;
+
+            if (value == head.Value)
+            {
+                if (head == tail)
+                {
+                    head = null;
+                    tail = null;
+                }
+                else
+                {
+                    head = head.Next;
+                    head.Previous = null;
+                }
+
+                return true;
+            }
+
+            Node temp = head.Next;
+
+            while (temp != null && value != temp.Value)
+            {
+                temp = temp.Next;
+            }
+
+            if (temp == tail)
+            {
+                tail = tail.Previous;
+                tail.Next = null;
+
+                return true;
+            }
+            else if (temp != null)
+            {
+                temp.Previous.Next = temp.Next;
+                temp.Next.Previous = temp.Previous;
+
+                return true;
+            }
+
+            return false;
+        }
+
         public void Traverse() { }
         public void ReverseTraversal() { }
     }
