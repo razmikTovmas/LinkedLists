@@ -17,5 +17,15 @@
             public Node Next { get => next; set => next = value; }
             public Node Previous { get => previous; set => previous = value; }
         }
+
+        private Node head;
+        private Node tail;
+
+        public void Add(int value) { }
+        public bool Contains(int value) { return false; }
+        public bool Remove(int value) { return false; }
+        public void Traverse() { }
+        public void ReverseTraversal() { }
+
     }
 }
