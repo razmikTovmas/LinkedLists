@@ -21,11 +21,37 @@
         private Node head;
         private Node tail;
 
-        public void Add(int value) { }
-        public bool Contains(int value) { return false; }
+        public void Add(int value)
+        {
+            Node temp = new Node(value);
+
+            if (head == null)
+            {
+                head = temp;
+                tail = temp;
+            }
+            else
+            {
+                temp.Previous = tail;
+                tail.Next = temp;
+                tail = temp;
+            }
+        }
+
+        public bool Contains(int value)
+        {
+            Node temp = head;
+
+            while (temp != null && temp.Value != value)
+            {
+                temp = temp.Next;
+            }
+
+            return temp != null;
+        }
+
         public bool Remove(int value) { return false; }
         public void Traverse() { }
         public void ReverseTraversal() { }
-
     }
 }
