@@ -47,7 +47,46 @@
             return temp != null;
         }
 
-        public bool Remove(int value) { return false; }
+        public bool Remove(int value)
+        {
+            if (head != null) return false;
+
+            Node temp = head;
+
+            if (temp.Value == value)
+            {
+                if (head == tail)
+                {
+                    head = null;
+                    tail = null;
+                }
+                else
+                {
+                    head = head.Next;
+                }
+            }
+
+            while (temp.Next != null && temp.Next.Value != value)
+            {
+                temp = temp.Next;
+            }
+
+            if (temp.Next != null)
+            {
+                if (temp.Next == tail)
+                {
+                    tail = temp;
+                }
+                else
+                {
+                    temp.Next = temp.Next.Next;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void Traverse() { }
         public void ReverseTraversal() { }
 
