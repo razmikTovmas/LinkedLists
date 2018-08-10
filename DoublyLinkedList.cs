@@ -95,7 +95,30 @@
             return false;
         }
 
-        public void Traverse() { }
-        public void ReverseTraversal() { }
+        public void Traverse()
+        {
+            Node temp = head;
+
+            while (temp.Next != null)
+            {
+                System.Console.Write(temp.Value + " -> ");
+                temp = temp.Next;
+            }
+
+            System.Console.WriteLine(temp.Value);
+        }
+
+        public void ReverseTraversal()
+        {
+            Node temp = tail;
+
+            while (temp.Previous != null)
+            {
+                System.Console.Write(temp.Value + " <- ");
+                temp = temp.Previous;
+            }
+
+            System.Console.WriteLine(temp.Value);
+        }
     }
 }
