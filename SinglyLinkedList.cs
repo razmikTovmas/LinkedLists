@@ -87,8 +87,40 @@
             return false;
         }
 
-        public void Traverse() { }
-        public void ReverseTraversal() { }
+        public void Traverse()
+        {
+            Node temp = head;
 
+            while (temp.Next != null)
+            {
+                System.Console.Write(temp.Value + " -> ");
+                temp = temp.Next;
+            }
+
+            System.Console.WriteLine(temp.Value);
+        }
+
+        public void ReverseTraversal()
+        {
+            if (tail != null)
+            {
+                Node curr = tail;
+
+                while (curr != head)
+                {
+                    Node prev = head;
+
+                    while (prev.Next != curr)
+                    {
+                        prev = prev.Next;
+                    }
+
+                    System.Console.Write(curr.Value + " <- ");
+                    curr = prev;
+                }
+
+                System.Console.WriteLine(curr.Value);
+            }
+        }
     }
 }
