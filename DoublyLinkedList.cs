@@ -1,0 +1,7 @@
+﻿namespace LinkedLists
+{
+    class DoublyLinkedList
+    {
+
+    }
+}
